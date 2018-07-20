@@ -11,8 +11,7 @@ from .StationGenerator import getStationList
 import urllib.request
 import datetime
 
-
-baseURL = 'http://www.umweltserver.saarland.de/extern/wasser/daten/'
+baseURL = 'https://iframe01.saarland.de/extern/wasser/daten/'
 URLending = '.txt'
 
 

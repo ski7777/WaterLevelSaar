@@ -8,7 +8,7 @@ import json
 
 
 def getStationList():
-    url = 'http://www.umweltserver.saarland.de/extern/wasser/Daten.js'
+    url = 'https://iframe01.saarland.de/extern/wasser/Daten.js'
     raw = urllib.request.urlopen(url).read().decode('utf-8', errors='ignore').splitlines()
     rawList = list(filter(lambda x: x != '' and x != ' ', raw))
 
