@@ -22,9 +22,9 @@ def getStationData(id):
         rawList = list(filter(lambda x: x != '' and x != ' ', raw))
 
         meta = {}
-        meta["id"] = rawList[0].split(";")[0]
-        meta["location"] = rawList[0].split(";")[1].replace('"', '')
-        meta["river"] = rawList[0].split(";")[2].replace('"', '')
+        meta['id'] = rawList[0].split(';')[0]
+        meta['location'] = rawList[0].split(';')[1].replace('"', '')
+        meta['river'] = rawList[0].split(';')[2].replace('"', '')
         rawList.pop(0)
 
         data = {}
@@ -32,8 +32,9 @@ def getStationData(id):
             date = x.split(';')[0].split(".")
             time = x.split(';')[1].split(":")
             epoch = int(datetime.datetime(int(date[2]), int(date[1]), int(date[0]), int(time[0]), int(time[1])).strftime('%s'))
-            if not int(x.split(';')[2]) == -9999:
-                data[epoch] = int(x.split(';')[2])
+            level = int(x.split(';')[2])
+            if level != -9999:
+                data[epoch] = level
     except:
         data = {}
         meta = {}
