@@ -10,6 +10,7 @@ class Debug():
 from .StationGenerator import getStationList
 import urllib.request
 import datetime
+import arrow
 
 baseURL = 'https://iframe01.saarland.de/extern/wasser/daten/'
 URLending = '.txt'
@@ -29,10 +30,10 @@ def getStationData(id):
 
         data = {}
         for x in rawList:
-            date = x.split(';')[0].split(".")
-            time = x.split(';')[1].split(":")
-            epoch = int(datetime.datetime(int(date[2]), int(date[1]), int(date[0]), int(time[0]), int(time[1])).strftime('%s'))
+            date = x.split(';')[0]
+            time = x.split(';')[1]
             level = int(x.split(';')[2])
+            epoch = arrow.get(date + ' ' + time + ' +01:00', 'D.M.YYYY H.m ZZ').timestamp
             if level != -9999:
                 data[epoch] = level
     except:
