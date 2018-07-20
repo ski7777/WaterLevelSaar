@@ -2,10 +2,11 @@ from distutils.core import setup, Extension
 
 setup(name='WaterLevelSaar',
       description='Python Interface for water levels in Saarland/Germany',
-      version='1.0.0',
+      version='1.0.1',
       author='Raphael Jacob',
       author_email='r.jacob2002@gmail.com',
       url='https://github.com/ski7777/WaterLevelSaar',
       license='GPLv3',
-      packages=['WaterLevelSaar']
+      packages=['WaterLevelSaar'],
+      install_requires=['arrow']
       )
